@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - Mirage Education Management System</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#475569',
+                        dark: {
+                            100: '#334155',
+                            200: '#1e293b',
+                            300: '#0f172a',
+                            400: '#020617'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark-400 text-gray-100 font-sans">
+    <!-- Main Container -->
+    <div class="min-h-screen flex flex-col">
+        
+        <!-- Header -->
+        <header class="fade-in bg-gradient-to-r from-dark-300 to-dark-200 shadow-xl">
+            <div class="container mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <i class="fas fa-graduation-cap text-4xl text-primary mr-3"></i>
+                    <h1 class="text-2xl md:text-3xl font-bold text-white">Mirage</h1>
+                </div>
+                <nav class="flex items-center space-x-6">
+                    <a href="index.html#features" class="nav-link">Features</a>
+                    <a href="index.html#about" class="nav-link">About</a>
+                    <a href="index.html#demo" class="nav-link">Demo</a>
+                    <a href="index.html#login" class="nav-link">Login</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Registration Section -->
+        <section class="py-16 bg-dark-400 flex-grow flex items-center">
+            <div class="container mx-auto px-4">
+                <div class="max-w-2xl mx-auto bg-dark-200 rounded-xl shadow-2xl overflow-hidden fade-in">
+                    <div class="p-8">
+                        <div class="text-center mb-8">
+                            <i class="fas fa-user-plus text-5xl text-primary mb-4"></i>
+                            <h2 class="text-2xl font-bold">Create Your Account</h2>
+                            <p class="text-gray-400 mt-2">Join the Mirage Education Management System</p>
+                        </div>
+                        
+                        <form id="registrationForm">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label for="firstName" class="block text-sm font-medium text-gray-400 mb-2">First Name</label>
+                                    <div class="relative">
+                                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                            <i class="fas fa-user text-gray-500"></i>
+                                        </div>
+                                        <input type="text" id="firstName" name="firstName" class="form-input pl-10" placeholder="Enter your first name" required>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label for="lastName" class="block text-sm font-medium text-gray-400 mb-2">Last Name</label>
+                                    <div class="relative">
+                                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                            <i class="fas fa-user text-gray-500"></i>
+                                        </div>
+                                        <input type="text" id="lastName" name="lastName" class="form-input pl-10" placeholder="Enter your last name" required>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="email" class="block text-sm font-medium text-gray-400 mb-2">Email Address</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-envelope text-gray-500"></i>
+                                    </div>
+                                    <input type="email" id="email" name="email" class="form-input pl-10" placeholder="Enter your email" required>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-1">We'll send a verification link to this email</p>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="studentId" class="block text-sm font-medium text-gray-400 mb-2">Student ID</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-id-card text-gray-500"></i>
+                                    </div>
+                                    <input type="text" id="studentId" name="studentId" class="form-input pl-10" placeholder="Enter your student ID" required>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="password" class="block text-sm font-medium text-gray-400 mb-2">Password</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-lock text-gray-500"></i>
+                                    </div>
+                                    <input type="password" id="password" name="password" class="form-input pl-10" placeholder="Create a password" required minlength="8">
+                                </div>
+                                <p class="text-xs text-gray-500 mt-1">Minimum 8 characters</p>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="confirmPassword" class="block text-sm font-medium text-gray-400 mb-2">Confirm Password</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-lock text-gray-500"></i>
+                                    </div>
+                                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-input pl-10" placeholder="Confirm your password" required minlength="8">
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start mb-6">
+                                <div class="flex items-center h-5">
+                                    <input id="terms" name="terms" type="checkbox" class="h-4 w-4 text-primary focus:ring-primary border-gray-600 rounded bg-dark-300" required>
+                                </div>
+                                <div class="ml-3 text-sm">
+                                    <label for="terms" class="text-gray-400">I agree to the <a href="#" class="text-primary hover:underline">Terms and Conditions</a> and <a href="#" class="text-primary hover:underline">Privacy Policy</a></label>
+                                </div>
+                            </div>
+                            
+                            <div id="registrationMessage" class="hidden mb-6 p-4 rounded-lg"></div>
+                            
+                            <button type="submit" id="registerButton" class="w-full btn-primary">
+                                <i class="fas fa-user-plus mr-2"></i>Create Account
+                            </button>
+                        </form>
+                        
+                        <div class="mt-6 text-center">
+                            <p class="text-sm text-gray-400">
+                                Already have an account? <a href="index.html#login" class="text-primary hover:text-blue-400">Sign in here</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-dark-300 py-8">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="flex items-center mb-4 md:mb-0">
+                        <i class="fas fa-graduation-cap text-3xl text-primary mr-3"></i>
+                        <h2 class="text-xl font-bold text-white">Mirage</h2>
+                    </div>
+                    
+                    <div class="flex space-x-6">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <hr class="border-dark-100 my-6">
+                
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                        &copy; Mirage 2025 College/University Education Management System. All rights reserved.
+                    </p>
+                    
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-sm text-gray-400 hover:text-primary">Privacy Policy</a>
+                        <a href="#" class="text-sm text-gray-400 hover:text-primary">Terms of Service</a>
+                        <a href="mailto:caseyng100@gmail.com" class="text-sm text-gray-400 hover:text-primary">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+    <script src="js/registration.js"></script>
+</body>
+</html>
