@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Email Verification</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+        <h1 class="text-2xl font-bold mb-4">Test Email Verification</h1>
+        <form id="verificationForm" class="space-y-4">
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700">Email:</label>
+                <input type="email" id="email" name="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" required>
+            </div>
+            <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
+                Send Verification Email
+            </button>
+        </form>
+        <div id="result" class="mt-4 text-sm"></div>
+    </div>
+
+    <script>
+        document.getElementById('verificationForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const result = document.getElementById('result');
+            
+            try {
+                const response = await fetch('/auth/send-verification', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        token: 'test-token-123' // For testing purposes
+                    })
+                });
+                
+                if (response.ok) {
+                    result.textContent = 'Verification email sent successfully!';
+                    result.className = 'mt-4 text-sm text-green-600';
+                } else {
+                    throw new Error('Failed to send verification email');
+                }
+            } catch (error) {
+                result.textContent = 'Error: ' + error.message;
+                result.className = 'mt-4 text-sm text-red-600';
+            }
+        });
+    </script>
+</body>
+</html>
