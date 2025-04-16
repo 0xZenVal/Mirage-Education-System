@@ -1,0 +1,30 @@
+{
+  "name": "mirage-education-system",
+  "version": "1.0.0",
+  "description": "College/University Education Management System",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "education",
+    "management",
+    "system",
+    "college",
+    "university"
+  ],
+  "author": "Casey Ng",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "body-parser": "^1.20.2",
+    "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^6.9.4",
+    "crypto": "^1.0.1",
+    "bcryptjs": "^2.4.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
