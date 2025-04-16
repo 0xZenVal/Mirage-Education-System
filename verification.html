@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification - Mirage Education Management System</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#475569',
+                        dark: {
+                            100: '#334155',
+                            200: '#1e293b',
+                            300: '#0f172a',
+                            400: '#020617'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark-400 text-gray-100 font-sans">
+    <!-- Main Container -->
+    <div class="min-h-screen flex flex-col">
+        
+        <!-- Header -->
+        <header class="fade-in bg-gradient-to-r from-dark-300 to-dark-200 shadow-xl">
+            <div class="container mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <i class="fas fa-graduation-cap text-4xl text-primary mr-3"></i>
+                    <h1 class="text-2xl md:text-3xl font-bold text-white">Mirage</h1>
+                </div>
+                <nav class="flex items-center space-x-6">
+                    <a href="index.html#features" class="nav-link">Features</a>
+                    <a href="index.html#about" class="nav-link">About</a>
+                    <a href="index.html#demo" class="nav-link">Demo</a>
+                    <a href="index.html#login" class="nav-link">Login</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Verification Section -->
+        <section class="py-16 bg-dark-400 flex-grow flex items-center">
+            <div class="container mx-auto px-4">
+                <div class="max-w-xl mx-auto bg-dark-200 rounded-xl shadow-2xl overflow-hidden fade-in">
+                    <div class="p-8">
+                        <div class="text-center mb-8">
+                            <i class="fas fa-envelope-open-text text-5xl text-primary mb-4"></i>
+                            <h2 class="text-2xl font-bold">Email Verification</h2>
+                            <p class="text-gray-400 mt-2">Please check your inbox</p>
+                        </div>
+                        
+                        <div id="verificationPending" class="mb-6">
+                            <div class="bg-dark-300 p-6 rounded-lg border-l-4 border-primary">
+                                <h3 class="text-xl font-semibold mb-3">Verification Email Sent!</h3>
+                                <p class="text-gray-300 mb-4">
+                                    We've sent a verification link to your email address. Please check your inbox and click the link to complete your registration.
+                                </p>
+                                <div class="flex items-center text-gray-400 mb-4">
+                                    <i class="fas fa-info-circle text-primary mr-2"></i>
+                                    <p class="text-sm">If you don't see the email, please check your spam folder.</p>
+                                </div>
+                                
+                                <div class="flex items-center justify-between mt-4">
+                                    <p class="text-sm text-gray-400">
+                                        <span id="emailDisplay">your.email@example.com</span>
+                                    </p>
+                                    <button id="resendEmailBtn" class="text-primary hover:text-blue-400 text-sm font-medium">
+                                        <i class="fas fa-redo-alt mr-1"></i> Resend Email
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="verificationSuccess" class="mb-6 hidden">
+                            <div class="bg-green-900/30 p-6 rounded-lg border-l-4 border-green-500">
+                                <h3 class="text-xl font-semibold mb-3 text-green-400">
+                                    <i class="fas fa-check-circle mr-2"></i> Email Verified Successfully!
+                                </h3>
+                                <p class="text-gray-300 mb-4">
+                                    Your email has been verified successfully. Your account is now active.
+                                </p>
+                                <button id="continueToLoginBtn" class="btn-primary mt-2">
+                                    <i class="fas fa-sign-in-alt mr-2"></i> Continue to Login
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div id="verificationError" class="mb-6 hidden">
+                            <div class="bg-red-900/30 p-6 rounded-lg border-l-4 border-red-500">
+                                <h3 class="text-xl font-semibold mb-3 text-red-400">
+                                    <i class="fas fa-exclamation-circle mr-2"></i> Verification Failed
+                                </h3>
+                                <p class="text-gray-300 mb-4">
+                                    There was an error verifying your email. The verification link might be expired or invalid.
+                                </p>
+                                <button id="retryVerificationBtn" class="btn-primary mt-2">
+                                    <i class="fas fa-redo-alt mr-2"></i> Retry Verification
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-8">
+                            <a href="index.html" class="text-primary hover:text-blue-400">
+                                <i class="fas fa-home mr-2"></i> Return to Homepage
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-dark-300 py-8">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="flex items-center mb-4 md:mb-0">
+                        <i class="fas fa-graduation-cap text-3xl text-primary mr-3"></i>
+                        <h2 class="text-xl font-bold text-white">Mirage</h2>
+                    </div>
+                    
+                    <div class="flex space-x-6">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <hr class="border-dark-100 my-6">
+                
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                        &copy; Mirage 2025 College/University Education Management System. All rights reserved.
+                    </p>
+                    
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-sm text-gray-400 hover:text-primary">Privacy Policy</a>
+                        <a href="#" class="text-sm text-gray-400 hover:text-primary">Terms of Service</a>
+                        <a href="mailto:caseyng100@gmail.com" class="text-sm text-gray-400 hover:text-primary">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+    <script src="js/verification.js"></script>
+</body>
+</html>
